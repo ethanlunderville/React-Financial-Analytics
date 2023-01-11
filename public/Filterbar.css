@@ -1,0 +1,10 @@
+.filter-bar {
+    
+    max-width: 40%;
+    position: fixed;
+    left: 50%;
+    margin-right: 1%;
+    margin-top: 6px;
+    margin-bottom: 20px;
+    
+}

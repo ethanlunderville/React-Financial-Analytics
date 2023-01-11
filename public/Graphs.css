@@ -1,0 +1,18 @@
+
+  #graph-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 100%;
+    grid-auto-rows: auto;
+    transition: all .2s ease-in-out;
+  }
+  #graph-box-outer {
+
+  }
+
+  #graph-box > box {
+    padding: 40px;
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 70px;
+};
