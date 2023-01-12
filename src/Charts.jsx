@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Filter from './Filter.jsx';
+import { useState } from 'react';
 
 
 import {
@@ -23,30 +24,37 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
-  responsive: true,
-  scales: {
-    y: {
-      beginAtZero: true,
-      max: 600
+function Charts({transactions}) {
+
+  const labels = [1,2,3,4,5,6,7,8,9,10,11,12];
+  let [purchaseNums, setPurchaseNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
+  let [paymentNums, setPaymentNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
+
+  let [options, setOptions] = useState ({
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 600
+      }
     }
-  }
-};
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-  labels,
-  datasets: [{
-    label: "chartname",
-    data: [22,3,11,2,3,4],
-    borderWidth: 1,
-    backgroundColor: "#fffff",
-  }],
-};
-
-
-function Charts() {
+  });
+  
+  let [data, setData] = useState ({
+    labels,
+    datasets: [
+      {
+        label: "Income",
+        data: [1,3,3,4,5,6,7,8,9,9,500],
+        backgroundColor: "rgba(53, 162, 235, 0.5)"
+      },
+      {
+        label: "Expenses",
+        data: [1,2,3,4,5,6,7,8,9,9,9],
+        backgroundColor: "rgba(255, 99, 132, 0.5)"
+      }
+    ],
+  });
 
     return (
       <>
@@ -55,13 +63,7 @@ function Charts() {
           <div id="graph-box-outer">
           <div id="graph-box">
           <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
-          <box><Bar options={options} data={data}/></box>
+          <box><Bar options={options} data={data}/></box>s
           </div>
           </div>
       </>

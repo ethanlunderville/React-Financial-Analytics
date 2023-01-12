@@ -11,8 +11,11 @@ import '/public/Filterbar.css';
 import '/public/Graphs.css';
 
 
+
+
 function App() {
 
+  //Fades page in and out when changing views
   function setManager(displayNum: number) {
 
     let sleep = (milliseconds: number) => {
@@ -36,16 +39,22 @@ function App() {
 
   let [displayForm, setDisplayForm] = useState(0);
   let [visible, setVisible] = useState(true);
+  let [transactions, setTransactions] = useState({});
 
-  useEffect(() => { console.log(displayForm) }, [displayForm]);
+  useEffect(() => { 
+  console.log('--------');
+  console.log(transactions)
+  console.log('--------');
+  }, [transactions]);
 
   return (<>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    {    }
+
     <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
       <Nav setManager={setManager}/>
-      { (displayForm===0) && <Form setManager={setManager}/> }
+      { (displayForm===0) && <Form setManager={setManager} setTransactions={setTransactions}/> }
       { (displayForm===1) && <About/> }
-      { (displayForm===2) && <Charts/> }
+      { (displayForm===2) && <Charts transactions={transactions}/> }
     </div>
   </>);
 }

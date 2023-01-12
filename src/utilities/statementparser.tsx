@@ -1,16 +1,30 @@
+interface transaction {
+  date?: string;
+  month?: number;
+  transactionName?: string;
+  cost?: number;
+  balance?: number;
+}
+
 class Statementparser {
 
     static bofaParser = function (transactions: string[]): object[] {
 
-        let processedTransactions:string[][] = Statementparser.bofaPreprocessor(transactions)
-        let transactionObjects: object[] = [{}]
-        processedTransactions.forEach((transaction)=>{
-            let transactionObject = {
-                
-            };
+        let processedTransactions:string[][] = Statementparser.bofaPreprocessor(transactions);
+        let transactionObjects: object[] = [];
 
+        processedTransactions.forEach((transaction)=>{
+            let transactionObject: transaction = {
+                date: String(transaction[0]),
+                month: Number(String(transaction[0]).split('/')[0]),
+                transactionName: transaction[1],
+                cost: Number(transaction[2]),
+                balance: Number(transaction[3])
+            };
+            transactionObjects.push(transactionObject);
         });
-        return [{}];
+
+        return transactionObjects;
     };
 
     // Pretty imperative hehe

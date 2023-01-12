@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import Logo from './techlogo.jpg';
 import {Statementparser} from './utilities/statementparser.tsx';
-function Form({setManager}) {
+
+function Form({setManager, setTransactions}) {
 
   let [selectedFile, setSelectedFile] = useState("");
 
-  function onChange(event, setTransactions) { 
+  function onChange(event) { 
 
 
     var file = event.target.files[0];
@@ -14,9 +15,9 @@ function Form({setManager}) {
     let transactions = []
 
     fileReader.onload = function(event) {
-      //console.log(event.target.result)
       transactions = event.target.result.split('\n');
-      Statementparser.bofaParser(transactions);
+      transactions = Statementparser.bofaParser(transactions);
+      setTransactions(transactions);
     };
     fileReader.readAsText(file);
 
