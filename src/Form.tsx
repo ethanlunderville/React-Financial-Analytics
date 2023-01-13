@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Logo from './techlogo.jpg';
-import {Statementparser} from './utilities/statementparser.tsx';
+import {Statementparser} from './utilities/statementparser.js';
 
-function Form({setManager, setTransactions}) {
+function Form({setManager, setTransactions} : any) {
 
   let [selectedFile, setSelectedFile] = useState("");
 
-  function onChange(event) { 
+  function onChange(event: any) { 
 
 
     var file = event.target.files[0];
@@ -15,9 +15,12 @@ function Form({setManager, setTransactions}) {
     let transactions = []
 
     fileReader.onload = function(event) {
-      transactions = event.target.result.split('\n');
+
+      if (event.target !== null){
+      transactions = (event.target.result as string).split('\n');
       transactions = Statementparser.bofaParser(transactions);
       setTransactions(transactions);
+      }
     };
     fileReader.readAsText(file);
 
@@ -27,10 +30,10 @@ function Form({setManager, setTransactions}) {
   return (
     <>
     <div id="form-box">
-    <img src={Logo} height="160 px;" width="160 px;" />
     <div id ="form-center-div">
+    <img src={Logo} height="160 px;" width="160 px;" />
       <div id="form-outer">
-
+      
         <div className="form-group">
         <label>Select a bank</label>
         <select className="form-control" id="bankselect">
@@ -50,16 +53,24 @@ function Form({setManager, setTransactions}) {
         </div>
 
         <div className="form-group">
+        <label>Select the type of analysis you would like to do</label>
+        <select className="form-control" id="reportselect">
+          <option>Budgeting</option>
+          <option>Income and expenses</option>
+        </select >
+        </div>
+
+        <div className="form-group">
         <label id="month-or-year">Select a year</label>
         <input type="text" className="form-control" id="year"/>
         </div>
 
         <label>Please provide bank generated statement file</label>
-        <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <span class="input-group-text">Upload</span>
+        <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <span className="input-group-text">Upload</span>
               </div>
-              <div class="custom-file">
+              <div className="custom-file">
                 
                 <input
 
@@ -67,7 +78,7 @@ function Form({setManager, setTransactions}) {
 
                   type="file"
 
-                  class="custom-file-input"
+                  className="custom-file-input"
 
                   value={selectedFile}
 
@@ -75,14 +86,14 @@ function Form({setManager, setTransactions}) {
 
                 />
                 
-                <label class="custom-file-label" for="inputGroupFile01" id="filename-display">Choose file</label>
+                <label className="custom-file-label" id="filename-display">Choose file</label>
               </div>
             </div>
 
 
         <div className="form-check form-group">
           <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" required/>
-          <label className="form-check-label" for="flexCheckDefault">
+          <label className="form-check-label">
             Please check to agree to Terms of Service
           </label>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Logo from './techlogo.jpg'
 
-function Nav({setManager}) {
+function Nav({setManager}: any) {
 
   return (
     <>

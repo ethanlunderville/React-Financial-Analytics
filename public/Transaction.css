@@ -1,0 +1,27 @@
+.transflex {
+
+    display: grid;
+    grid-template-columns: 3fr 5fr 3fr .7fr;
+    grid-auto-rows: auto;
+    justify-items: center;
+    max-width: fit-content;
+    border: #888888;
+    border-bottom-style: solid;
+    margin-bottom: 15px;
+
+}
+
+.transflex > div {
+
+    overflow-x: visible;
+    max-width: 95%;
+}
+
+#transaction-buttons {
+
+    margin-left: 12vw;
+    display: flex;
+    flex-direction: row;
+    border-style: none;
+
+}

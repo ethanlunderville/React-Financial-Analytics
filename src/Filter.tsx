@@ -18,13 +18,18 @@ function Filter() {
 
   return (
     <>
-        <div className="filter-flex">
+        <span className="filter-flex">
             
-          <div className="input-group mb-3" id="reset-button-div">
-              <button id="filterButton" onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"} type="button">Reset data</button>
+          <div className="input-group  filterButton" id="reset-button-div">
+              <div id="filter-left">
+                <button id="reset-button" onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} type="button">Reset data</button>
+              </div>
           </div>
-            <div className="input-group mb-3">
-                <input type="text" className="form-control" placeholder="Company name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>
+
+          <div id="filter-right">
+            
+            <div className="input-group">
+                <input type="text" className="form-control" placeholder="Transaction name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>
                 <div className="input-group-append">
                     
                     <button 
@@ -41,7 +46,7 @@ function Filter() {
             </div>
             
 
-            <div className="input-group mb-3">
+            <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">$</span>
               </div>
@@ -61,11 +66,13 @@ function Filter() {
               </div>
             </div>
             
-            <div className="input-group mb-3" id="filter-button-div">
-              <button id="filterButton" onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"} type="button">Filter</button>
+            <div className="input-group" id="filter-button-div">
+              <button onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} id="filterbutton" type="button">Filter data</button>
             </div>
+            </div>
+          
             
-        </div>
+        </span>
         
     </>
   )

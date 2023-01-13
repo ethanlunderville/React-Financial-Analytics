@@ -1,14 +1,18 @@
 import React from 'react';
-import Nav from './Nav.jsx';
-import Form from './Form.jsx';
-import About from './About.jsx';
-import Charts from './Charts.jsx'
+import Nav from './Nav.js';
+import Form from './Form.js';
+import About from './About.js';
+import Charts from './Charts.js';
+
+
 import { useState } from 'react';
 import { useEffect } from 'react';
 import '/public/App.css';
 import '/public/About.css';
 import '/public/Filterbar.css';
 import '/public/Graphs.css';
+import '/public/Transaction.css';
+
 
 
 
@@ -39,7 +43,7 @@ function App() {
 
   let [displayForm, setDisplayForm] = useState(0);
   let [visible, setVisible] = useState(true);
-  let [transactions, setTransactions] = useState({});
+  let [transactions, setTransactions] = useState([]);
 
   useEffect(() => { 
   console.log('--------');

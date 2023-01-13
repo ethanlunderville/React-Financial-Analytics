@@ -1,18 +1,47 @@
 
   #graph-box {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 6fr;
     max-width: 100%;
     grid-auto-rows: auto;
     transition: all .2s ease-in-out;
+    padding-top: 12px;
   }
-  #graph-box-outer {
+
+  #numberdisplay {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5%;
+    margin-top: 2%;
 
   }
 
-  #graph-box > box {
+  #leftbox {
+
+    margin-left: 12px;
+    max-height: 85vh;
+    overflow-y:scroll ;
+
+  }
+
+  #tflex {
+
+    display: flex;
+    flex-direction: row;
+
+  }
+
+
+  #graph-box > div {
     padding: 40px;
-    max-width: 100%;
-    border-radius: 10px;
-    margin: 70px;
+    max-width: 99%;
+
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-height: 75vh;
+    overflow: scroll;
+
+    box-shadow: 2px 5px 7px #888888;
 };

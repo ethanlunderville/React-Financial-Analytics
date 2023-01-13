@@ -1,3 +1,4 @@
+/*
 .filter-bar {
     
     width:15%;
@@ -12,8 +13,8 @@
     min-width: 1%;
 
     display: grid;
-    grid-template-columns: 3fr 17fr 8fr 2fr;
-    gap: 3em;
+    grid-template-columns: 3fr 6fr 10fr 8fr 2fr;
+    gap: 2em;
     padding-right: .5%;
     border-right: 5%;
     
@@ -22,10 +23,10 @@
 
 }
 
-#filterButton {
+.filterButton {
 
-    min-width: 30%;
     margin-right: 5px;
+    min-width: 125px;
 
 }
 
@@ -33,7 +34,6 @@
 
     align-items: center;
     text-align: center;
-    justify-content: center;
     min-width: 80%;
 
 
@@ -55,5 +55,91 @@
 #filter-button-div, #reset-button-div > * {
 
     min-width: 80%;
+
+}
+*/
+
+
+.button-pressed {
+
+    background-color: #3c5690 !important;
+    color: white !important;
+}
+
+.filter-flex {
+
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+
+}
+
+#filter-right {
+    
+    margin-bottom: 25px;
+    margin-top: 25px;
+    
+    
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+
+    display: grid;
+    grid-template-columns: 10fr 6fr 2fr;
+    gap: 40px;
+    max-width: 98.58%;
+
+}
+
+#filter-left {
+
+    margin-bottom: 25px;
+    margin-top: 25px;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+
+    width: 90%;
+    justify-content: center;
+
+}
+
+#filter-right > div {
+    justify-content: center;
+}
+
+#reset-button-div {
+
+    justify-content: center;
+
+}
+
+#reset-button {
+
+    justify-content: center;
+    min-width: 80%;
+    min-height: 5px;
+    color: white;
+    background-color: rgb(43, 83, 147);
+    
+}
+
+#filterbutton {
+
+    width: 100%;
+    color: white;
+    background-color: rgb(43, 83, 147);
+
+}
+
+.btn {
+
+    border-radius: 0px !important;
+
+}
+#filter-button-div {
+
+    min-width: 100px;
 
 }
