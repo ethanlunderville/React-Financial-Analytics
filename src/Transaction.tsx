@@ -8,7 +8,8 @@ function Transaction({transactions} : any) {
     
 
         
-
+    <div id="outerleftbox">
+    <div id="mytransactions" className="btn">My Transactions</div>
       <div id="leftbox">
 
         
@@ -25,7 +26,15 @@ function Transaction({transactions} : any) {
           </div>
           
         )})}
+        
+
+        
+        
       </div>
+      <button id="resetbutton" className="btn">Reset Transactions</button>
+      </div>
+      
+      
       
     </>
   )

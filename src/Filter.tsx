@@ -19,31 +19,37 @@ function Filter() {
   return (
     <>
         <span className="filter-flex">
-            
-          <div className="input-group  filterButton" id="reset-button-div">
+            {
+          <div >
               <div id="filter-left">
-                <button id="reset-button" onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} type="button">Reset data</button>
+                <button id="reset-button" onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} type="button">?</button>
               </div>
           </div>
+          }
+          
+            <div id="filter-right">
 
-          <div id="filter-right">
+              <div className="input-group">
+                  <input type="text" className="form-control" placeholder="Transaction name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>
+                  <div className="input-group-append">
+
+                      <div className="input-group-prepend">
+                      <span className="input-group-text">?</span>
+                      </div>
+
+                      <button 
+                      onClick={()=> setFilterInPressed((e)=>{ if(!e) {setFilterOutPressed(false)} return filterInPressed=!e})}
+                      className={filterInPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}           
+                      type="button">Filter Out</button>
+
+                      <button
+                      onClick={()=> setFilterOutPressed((e)=>{ if(!e) {setFilterInPressed(false)} return filterOutPressed=!e })}
+                      className={filterOutPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
+                      type="button">Filter In</button>
+
+                  </div>
+              </div>
             
-            <div className="input-group">
-                <input type="text" className="form-control" placeholder="Transaction name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>
-                <div className="input-group-append">
-                    
-                    <button 
-                    onClick={()=> setFilterInPressed((e)=>{ if(!e) {setFilterOutPressed(false)} return filterInPressed=!e})}
-                    className={filterInPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}           
-                    type="button">Filter Out</button>
-                    
-                    <button
-                    onClick={()=> setFilterOutPressed((e)=>{ if(!e) {setFilterInPressed(false)} return filterOutPressed=!e })}
-                    className={filterOutPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
-                    type="button">Filter In</button>
-                
-                </div>
-            </div>
             
 
             <div className="input-group">
@@ -52,6 +58,10 @@ function Filter() {
               </div>
               <input type="text" placeholder="0.00" className="form-control" aria-label="Amount (to the nearest dollar)"/>
               <div className="input-group-append">
+
+                <div className="input-group-prepend">
+                <span className="input-group-text">?</span>
+                </div>
 
                 <button 
                 onClick={()=> setLessThanPressed((e)=>{if (!e) {setMoreThanPressed(false)} return lessThanPressed=!e})}
@@ -63,11 +73,11 @@ function Filter() {
                 className={moreThanPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
                 type="button">greater than</button>
 
-              </div>
+                </div>
             </div>
             
             <div className="input-group" id="filter-button-div">
-              <button onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} id="filterbutton" type="button">Filter data</button>
+              <button onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} id="filterbutton" type="button">Filter transactions</button>
             </div>
             </div>
           

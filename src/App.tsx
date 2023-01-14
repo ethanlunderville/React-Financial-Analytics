@@ -13,10 +13,6 @@ import '/public/Filterbar.css';
 import '/public/Graphs.css';
 import '/public/Transaction.css';
 
-
-
-
-
 function App() {
 
   //Fades page in and out when changing views
@@ -31,13 +27,13 @@ function App() {
     sleep(300).then((e)=>{
   
       setDisplayForm(displayNum);
-      sleep(300);
+      if (displayNum === 2){
+        sleep(1500).then(()=>{setVisible(true)});
+      } else {
+        sleep(300).then(()=>{setVisible(true)});
+      }
         
-    }).then(()=>{
-
-      setVisible(true);
-
-    });
+    })
   
   }
 
@@ -52,9 +48,7 @@ function App() {
   }, [transactions]);
 
   return (<>
-    {    }
-
-    <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
+      <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
       <Nav setManager={setManager}/>
       { (displayForm===0) && <Form setManager={setManager} setTransactions={setTransactions}/> }
       { (displayForm===1) && <About/> }
