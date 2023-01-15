@@ -1,22 +1,14 @@
 #textbox{
-    align-items: center;
-    text-align: center;
-    max-width: 500px;
-    color:#888888 !important;
+
+  text-align: center;
+  color:#888888 !important;
+
 }
+
 #form-about {
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-
+  
   box-shadow: 2px 5px 7px #888888;
-  width: 25%;
+  width: 30%;
   padding: 25px;
-  
-  align-self: center;
-  background-color: white;
-  
     
 }

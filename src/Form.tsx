@@ -1,14 +1,13 @@
-import { useState, useEffect } from 'react';
 import React from 'react';
+import { useState } from 'react';
 import Logo from './techlogo.jpg';
-import {Statementparser} from './utilities/statementparser.js';
+import { Statementparser } from './utilities/statementparser.js';
 
 function Form({setManager, setTransactions} : any) {
 
   let [selectedFile, setSelectedFile] = useState("");
 
   function onChange(event: any) { 
-
 
     var file = event.target.files[0];
     var fileReader = new FileReader();
@@ -17,13 +16,16 @@ function Form({setManager, setTransactions} : any) {
     fileReader.onload = function(event) {
 
       if (event.target !== null){
+
       transactions = (event.target.result as string).split('\n');
       transactions = Statementparser.bofaParser(transactions);
       setTransactions(transactions);
+      
       }
+      
     };
-    fileReader.readAsText(file);
 
+    fileReader.readAsText(file);
 
   }
 
@@ -33,7 +35,7 @@ function Form({setManager, setTransactions} : any) {
     <div id ="form-center-div">
     <img src={Logo} height="160 px;" width="160 px;" />
       <div id="form-outer">
-      
+    
         <div className="form-group">
         <label>Select a bank</label>
         <select className="form-control" id="bankselect">
@@ -70,26 +72,17 @@ function Form({setManager, setTransactions} : any) {
               <div className="input-group-prepend">
                 <span className="input-group-text">Upload</span>
               </div>
-              <div className="custom-file">
-                
+              <div className="custom-file">                
                 <input
-
                   id="inputGroupFile01"
-
                   type="file"
-
                   className="custom-file-input"
-
                   value={selectedFile}
-
                   onChange={(e) => {onChange(e);}}
-
-                />
-                
+                />                
                 <label className="custom-file-label" id="filename-display">Choose file</label>
               </div>
             </div>
-
 
         <div className="form-check form-group">
           <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" required/>

@@ -1,5 +1,5 @@
-
 class Datautility {
+
     static transactionCopier = function (transactions: object[]): object[] {
 
         let copiedTransactions: object[] = transactions.map((transaction)=>{
@@ -19,7 +19,6 @@ class Datautility {
         
         while (Ymax % 500 !== 0){
           Ymax+=1;
-          //console.log(Ymax);
         }
         
         return Ymax;

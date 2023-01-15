@@ -1,11 +1,12 @@
 
   #graph-box {
+
     display: grid;
     grid-template-columns: 3fr 7fr;
     max-width: 100%;
     grid-auto-rows: auto;
-    transition: all .2s ease-in-out;
     padding-top: 12px;
+
   }
 
   #numberdisplay {
@@ -17,28 +18,21 @@
     margin-top: 2%;
 
   }
-
-  #tflex {
-
-    display: flex;
-    flex-direction: row;
-
-  }
-
+  
   .chartbox {
 
-    padding-top: 40px;
+    padding-top: 28px;
     padding-right: 72px;
     padding-left: 72px;
-    box-shadow: 2px 5px 7px #888888;
-
-    max-width: 99%;
-
+    padding-bottom: 28px;
+    
     margin-right: 20px;
     margin-bottom: 20px;
-    max-height: 75vh;
+    
+    max-height: 77vh;
+    max-width: 99%;
 
-    overflow-y: scroll;
+    box-shadow: 2px 5px 7px #888888;
 
   }
 
@@ -46,26 +40,23 @@
 
     max-width: 99%;
     padding: 40px;
-    max-height: 70vh;
-
-    
+    max-height: 77vh;
     overflow-y: scroll;
 
   }
 
   #outerleftbox {
 
-    box-shadow: 2px 5px 7px #888888;
-    max-height: 75vh;
     display: flex;
     flex-direction: column;
+    box-shadow: 2px 5px 7px #888888;
 
     max-width: 99%;
+    max-height: 75vh;
 
     margin-right: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
-    max-height: 75vh;
+    max-height: 77vh;
 
-
-  };
+  }

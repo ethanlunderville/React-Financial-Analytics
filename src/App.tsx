@@ -3,15 +3,9 @@ import Nav from './Nav.js';
 import Form from './Form.js';
 import About from './About.js';
 import Charts from './Charts.js';
-
-
 import { useState } from 'react';
 import { useEffect } from 'react';
-import '/public/App.css';
-import '/public/About.css';
-import '/public/Filterbar.css';
-import '/public/Graphs.css';
-import '/public/Transaction.css';
+
 
 function App() {
 

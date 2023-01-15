@@ -27,6 +27,7 @@
 }
 
 #resetbutton {
+    
     color: white;
     background-color: rgba(92,184,92,255);
     font-size: large;
@@ -37,6 +38,6 @@
     font-size: large;
     border-width: 2px;
     color: white;
-    background-color: rgba(92,184,92,255)
+    background-color: #6c757d;
 
 }
