@@ -19,9 +19,24 @@ function Filter() {
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Transaction name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>
             <div className="input-group-append">
+
+            <div className="tooltip-wrap">
+          
+          
               <div className="input-group-prepend">
                 <span className="input-group-text">?</span>
               </div>
+
+              <div className="tooltip-content-filter">
+             Use this to decide what data to include or exclude.
+              <br/><br/>
+             Filter out: Filters out transactions all that include user specified keywords.
+             <br/><br/>
+             Filter in: Only shows transactions containing user specified keywords.
+             <br/><br/>
+             Note: In order to filter multiple words at once seperate the desired words with spaces.
+          </div> 
+        </div>
 
                 <button 
                 onClick={()=> setFilterInPressed((e)=>{ if(!e) {setFilterOutPressed(false)} return filterInPressed=!e})}
@@ -36,14 +51,31 @@ function Filter() {
             </div>
           </div>
           <div className="input-group">
+
+            
             <div className="input-group-prepend">
               <span className="input-group-text">$</span>
             </div>
+
             <input type="text" placeholder="0.00" className="form-control" aria-label="Amount (to the nearest dollar)"/>
             <div className="input-group-append">
+
+              <div className="tooltip-wrap">
+
               <div className="input-group-prepend">
               <span className="input-group-text">?</span>
               </div>
+
+              <div className="tooltip-content-ltgt">
+             Use this to filter out transactions based on their ammounts.
+              <br/><br/>
+             Less than: Filters out transactions where the transaction dollar ammount is less than the user provided dollar ammount.
+             <br/><br/>
+             Greater than: Filters out transactions where the transaction dollar ammount is greater than the user provided dollar ammount.
+          </div> 
+        </div>
+
+
 
                 <button 
                 onClick={()=> setLessThanPressed((e)=>{if (!e) {setMoreThanPressed(false)} return lessThanPressed=!e})}

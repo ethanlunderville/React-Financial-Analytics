@@ -1,0 +1,40 @@
+
+  .tooltip-wrap .tooltip-content-filter {
+    display: none;
+    position: absolute;
+    margin-top: 15px;
+    z-index: 1000;
+    top: 110%;
+    left: -25%;
+    right: 1%;
+    margin-left: 80%;
+    background-color: rgba(82,80,85,255);
+    border-radius: 1px;
+    color: white;
+    padding: 1.3em;
+    box-shadow: 2px 5px 7px #888888;
+  }
+  .tooltip-wrap:hover .tooltip-content-filter {
+    display: block;
+    max-width: fit-content;
+  }
+
+  .tooltip-wrap .tooltip-content-ltgt {
+    display: none;
+    position: absolute;
+    margin-top: 15px;
+    z-index: 1000;
+    top: 110%;
+    left: -50%;
+    right: 1%;
+    margin-left: 80%;
+    background-color: rgba(82,80,85,255);
+    border-radius: 1px;
+    color: white;
+    padding: 1.3em;
+    box-shadow: 2px 5px 7px #888888;
+  }
+  .tooltip-wrap:hover .tooltip-content-ltgt {
+    display: block;
+    max-width: fit-content;
+  }

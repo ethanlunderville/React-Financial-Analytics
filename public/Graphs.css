@@ -9,38 +9,46 @@
 
   }
 
+  @media only screen and (max-width: 1200px) {
+    #graph-box {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   #numberdisplay {
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 3%;
-    margin-top: 2%;
+    margin-top: 4%;
 
   }
   
   .chartbox {
 
-    padding-top: 24px;
-    padding-right: 6%;
-    padding-left: 6%;
+    padding-top: 4%;
+    padding-right: 4%;
+    padding-left: 4%;
     padding-bottom: 24px;
     
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 12px;
+    margin-bottom: 12px;
     
-    max-height: 77vh;
+    max-height: 85vh;
     max-width: 99%;
 
     box-shadow: 2px 5px 7px #888888;
 
+    overflow-y: scroll;
   }
 
   #leftbox {
 
     max-width: 99%;
     padding: 40px;
-    max-height: 77vh;
+    max-height: 80vh;
     overflow-y: scroll;
 
   }
@@ -56,6 +64,6 @@
     margin-right: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
-    max-height: 77vh;
+    max-height: 85vh;
 
   }

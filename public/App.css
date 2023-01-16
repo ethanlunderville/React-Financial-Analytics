@@ -12,10 +12,10 @@
   align-items: center;
   box-shadow: 2px 5px 7px #888888;
   min-width: 25%;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
   padding-bottom: 2% !important;
-  margin-top: 2vh;
+  margin-top: 9vh;
 
 }
 
@@ -47,4 +47,31 @@
 
   margin-bottom: 6px !important;
 
+}
+
+html {
+
+    zoom: 90%; 
+    -moz-transform: scale(-2); 
+    -moz-transform-origin: 0 0;
+
+
+}
+
+#generate-insights{
+
+    border-width: 2px;
+    color: white;
+    border: none;
+    font-size: 17px;
+    background-color: #6c757d;
+    background-color: rgba(92,184,92,255);
+
+}
+
+@media only screen and (max-width: 575px) {
+  #navbarNav {
+    margin-right: 4% !important;
+    margin-top: -8%;
+  }
 }

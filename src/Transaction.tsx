@@ -8,7 +8,7 @@ function Transaction({transactions} : any) {
         <div id="mytransactions" className="btn">My Transactions</div>
         }
         <div id="leftbox">
-            {transactions.map((transaction: any)=>{ return (
+            {transactions.map((transaction: any) => { return (
               <div className="transflex">
                 <p>{transaction['date']}</p>
                 <p>{transaction['transactionName']}</p>

@@ -30,7 +30,7 @@ function Charts(this: any, {transactions}: any): any {
 
   let [transactionsCopy, setTransactionsCopy] = useState(Datautility.transactionCopier(transactions));
 
-  const labels = [1,2,3,4,5,6,7,8,9,10,11,12];
+  const labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let [purchaseNums, setPurchaseNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
   let [paymentNums, setPaymentNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
   let [maxY, setMaxY] = useState(0);

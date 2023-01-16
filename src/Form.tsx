@@ -62,11 +62,12 @@ function Form({setManager, setTransactions} : any) {
         </select >
         </div>
 
+        
         <div className="form-group">
         <label id="month-or-year">Select a year</label>
         <input type="text" className="form-control" id="year"/>
         </div>
-
+        
         <label>Please provide bank generated statement file</label>
         <div className="input-group mb-3">
               <div className="input-group-prepend">
@@ -92,7 +93,7 @@ function Form({setManager, setTransactions} : any) {
         </div>
 
       </div>
-      <button className="btn-sm" type="submit" onClick={()=>setManager(2)}>Generate Insights</button>
+      <button id="generate-insights" className="btn-sm" type="submit" onClick={()=>setManager(2)}>Generate Insights</button>
     </div>
   </div>
     </>

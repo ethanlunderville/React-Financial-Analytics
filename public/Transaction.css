@@ -6,6 +6,7 @@
     justify-items: center;
     max-width: fit-content;
     border: #888888;
+    grid-gap: 5px;
     border-bottom-style: solid;
     margin-bottom: 15px;
 
