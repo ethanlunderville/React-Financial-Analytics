@@ -29,8 +29,7 @@
     
     display: grid;
     grid-template-columns: 10fr 6fr 2fr;
-    gap: 40px;
-    max-width: 98.58%;
+    gap: 1%;
     box-shadow: 2px 5px 7px #888888;
 
 }

@@ -14,11 +14,7 @@ function Filter() {
   return (
     <>
       <span className="filter-flex">
-        <div >
-          <div id="filter-left">
-            <button id="reset-button" onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} type="button">?</button>
-          </div>
-        </div>
+        
         <div id="filter-right">
           <div className="input-group">
             <input type="text" className="form-control" placeholder="Transaction name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>

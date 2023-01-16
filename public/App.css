@@ -8,12 +8,14 @@
 
   display: flex;
   flex-direction: column;
+  max-height: 70% !important;
   align-items: center;
   box-shadow: 2px 5px 7px #888888;
   min-width: 25%;
-  padding: 25px;
-  padding-bottom: 45px !important;
-  margin-top: 5.5vh;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 2% !important;
+  margin-top: 2vh;
 
 }
 
@@ -39,4 +41,10 @@
   opacity: 0;
   transition: visibility 0s 2s, opacity .3s linear;
   
+}
+
+.form_group {
+
+  margin-bottom: 6px !important;
+
 }
