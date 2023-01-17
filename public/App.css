@@ -49,23 +49,14 @@
 
 }
 
-html {
+body {
 
-    zoom: 90%; 
-    -moz-transform: scale(-2); 
-    -moz-transform-origin: 0 0;
-
-
+  zoom: 40%;
+  
 }
 
 #generate-insights{
 
-    border-width: 2px;
-    color: white;
-    border: none;
-    font-size: 17px;
-    background-color: #6c757d;
-    background-color: rgba(92,184,92,255);
 
 }
 

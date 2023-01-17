@@ -4,6 +4,8 @@ interface transaction {
   transactionName?: string;
   cost?: number;
   balance?: number;
+  visible?:boolean;
+  id?: number;
 }
 
 class Statementparser {
@@ -13,13 +15,15 @@ class Statementparser {
         let processedTransactions:string[][] = Statementparser.bofaPreprocessor(transactions);
         let transactionObjects: object[] = [];
 
-        processedTransactions.forEach((transaction)=>{
+        processedTransactions.forEach((transaction, id)=>{
             let transactionObject: transaction = {
                 date: String(transaction[0]),
                 month: Number(String(transaction[0]).split('/')[0]),
                 transactionName: transaction[1],
                 cost: Number(transaction[2]),
-                balance: Number(transaction[3])
+                balance: Number(transaction[3]),
+                visible: true,
+                id: id
             };
             transactionObjects.push(transactionObject);
         });

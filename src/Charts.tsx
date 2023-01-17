@@ -26,9 +26,7 @@ ChartJS.register(
   Legend
 );
 
-function Charts(this: any, {transactions}: any): any {
-
-  let [transactionsCopy, setTransactionsCopy] = useState(Datautility.transactionCopier(transactions));
+function Charts({transactions}: any): any {
 
   const labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let [purchaseNums, setPurchaseNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
@@ -40,19 +38,20 @@ function Charts(this: any, {transactions}: any): any {
     let purchases: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
     let payments: number[] = [0,0,0,0,0,0,0,0,0,0,0,0]; 
 
-    transactionsCopy.forEach((transaction: any)=>{
+    transactions.current.forEach((transaction: any)=>{
 
-      console.log(transaction);
+      if ( transaction['visible'] === true) {
 
-      if (transaction['cost'] > 0) {
-        //console.log(transaction['cost'])
-      purchases[transaction['month']-1] += transaction['cost'];
+        if (transaction['cost'] > 0) {
 
-      } else {
+        purchases[transaction['month']-1] += transaction['cost'];
 
-      payments[transaction['month']-1] -= transaction['cost'];
+        } else {
 
-      } 
+        payments[transaction['month']-1] -= transaction['cost'];
+
+        } 
+      }
 
     });
 
@@ -99,9 +98,9 @@ function Charts(this: any, {transactions}: any): any {
     return (
       <>
         <div id="graph-box-outer">
-          <Filter/>  
+          <Filter transactions={transactions}/>  
             <div id="graph-box">
-              <Transaction transactions={transactionsCopy}/>
+              <Transaction transactions={transactions}/>
                 <div className = "chartbox">
                   <Bar options={options} data={data}/>
                   <div id="numberdisplay">

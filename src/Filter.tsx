@@ -1,12 +1,17 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useRef } from 'react'
+import { Datautility } from './utilities/datautility';
 
-function Filter() {
+function Filter({transactions}: any) {
 
   let [filterInPressed, setFilterInPressed] = useState(false);
   let [filterOutPressed, setFilterOutPressed] = useState(false);
   let [lessThanPressed, setLessThanPressed] = useState(false);
-  let [moreThanPressed, setMoreThanPressed] = useState(false);
+  let [greaterThanPressed, setGreaterThanPressed] = useState(false);
+
+  let [nameInput, setNameInput] = useState('');
+  let [quantityInput, setQuantityInput] = useState("");
+
 
   let [filterPressed, setFilterPressed] = useState(false);
   
@@ -17,7 +22,15 @@ function Filter() {
         
         <div id="filter-right">
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Transaction name" aria-label="Filter transactions" aria-describedby="basic-addon2"/>
+            <input id="transaction-filter-input"
+
+              type="text" className="form-control"
+              placeholder="Transaction name" 
+              aria-label="Filter transactions" 
+              aria-describedby="basic-addon2"
+              value={quantityInput}
+              onChange={e=>setQuantityInput(e.target.value)}
+            />
             <div className="input-group-append">
 
             <div className="tooltip-wrap">
@@ -57,7 +70,16 @@ function Filter() {
               <span className="input-group-text">$</span>
             </div>
 
-            <input type="text" placeholder="0.00" className="form-control" aria-label="Amount (to the nearest dollar)"/>
+            <input id="ammount-filter-input" 
+            type="text" 
+            placeholder="0.00" 
+            className="form-control" 
+            aria-label="Amount (to the nearest dollar)"
+            value={nameInput}
+            onChange={e=>setNameInput(e.target.value)}
+
+            />
+
             <div className="input-group-append">
 
               <div className="tooltip-wrap">
@@ -78,20 +100,28 @@ function Filter() {
 
 
                 <button 
-                onClick={()=> setLessThanPressed((e)=>{if (!e) {setMoreThanPressed(false)} return lessThanPressed=!e})}
+                onClick={()=> setLessThanPressed((e)=>{if (!e) {setGreaterThanPressed(false)} return lessThanPressed=!e})}
                 className={lessThanPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"} 
                 type="button">less than</button>
 
                 <button                 
-                onClick={()=> setMoreThanPressed((e)=>{if (!e) {setLessThanPressed(false)} return moreThanPressed=!e})}
-                className={moreThanPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
+                onClick={()=> setGreaterThanPressed((e)=>{if (!e) {setLessThanPressed(false)} return greaterThanPressed=!e})}
+                className={greaterThanPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
                 type="button">greater than</button>
 
             </div>
           </div>
             
           <div className="input-group" id="filter-button-div">
-              <button onClick={()=> setFilterPressed((e)=>filterPressed=!e)} className={filterPressed ? "button-pressed btn btn-outline-secondary filterButton" : "btn btn-outline-secondary filterButton"} id="filterbutton" type="button">Filter transactions</button>
+              <button onClick={()=>{
+                   
+                    transactions.current = Datautility.filterhandler (transactions,
+                                        filterInPressed, filterOutPressed, nameInput,
+                                        lessThanPressed, greaterThanPressed, quantityInput)
+                  }}
+                  id="filterbutton" type="button">
+                  Filter transactions
+              </button>
           </div>
         </div>
       </span>

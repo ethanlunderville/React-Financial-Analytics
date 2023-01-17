@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Logo from './techlogo.jpg';
 import { Statementparser } from './utilities/statementparser.js';
 
-function Form({setManager, setTransactions} : any) {
+function Form({setManager, transactions} : any) {
 
   let [selectedFile, setSelectedFile] = useState("");
 
@@ -11,15 +11,16 @@ function Form({setManager, setTransactions} : any) {
 
     var file = event.target.files[0];
     var fileReader = new FileReader();
-    let transactions = []
+    let transactionsNew = []
 
     fileReader.onload = function(event) {
 
       if (event.target !== null){
 
-      transactions = (event.target.result as string).split('\n');
-      transactions = Statementparser.bofaParser(transactions);
-      setTransactions(transactions);
+      transactionsNew = (event.target.result as string).split('\n');
+      transactionsNew = Statementparser.bofaParser(transactionsNew);
+      
+      transactions.current = transactionsNew;
       
       }
       

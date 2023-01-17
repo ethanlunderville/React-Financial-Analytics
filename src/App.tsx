@@ -5,6 +5,7 @@ import About from './About.js';
 import Charts from './Charts.js';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { useRef } from 'react';
 
 
 function App() {
@@ -33,18 +34,19 @@ function App() {
 
   let [displayForm, setDisplayForm] = useState(0);
   let [visible, setVisible] = useState(true);
-  let [transactions, setTransactions] = useState([]);
+  let transactions = useRef([]);
 
   useEffect(() => { 
   console.log('--------');
-  console.log(transactions)
+  console.log("Master transaction state was changed")
+  //console.log(transactions.current);
   console.log('--------');
   }, [transactions]);
 
   return (<>
       <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
       <Nav setManager={setManager}/>
-      { (displayForm===0) && <Form setManager={setManager} setTransactions={setTransactions}/> }
+      { (displayForm===0) && <Form setManager={setManager} transactions={transactions}/> }
       { (displayForm===1) && <About/> }
       { (displayForm===2) && <Charts transactions={transactions}/> }
     </div>
