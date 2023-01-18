@@ -5,7 +5,6 @@ interface transaction {
   cost?: number;
   balance?: number;
   visible?:boolean;
-  graphable?:boolean;
   id?: number;
 }
 
@@ -24,7 +23,6 @@ class Statementparser {
                 cost: Number(transaction[2]),
                 balance: Number(transaction[3]),
                 visible: true,
-                graphable: true,
                 id: id
             };
             transactionObjects.push(transactionObject);

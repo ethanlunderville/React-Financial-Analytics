@@ -98,6 +98,32 @@ class Datautility {
         return Ymax;
     }
 
+    static calculateMonths = function(transactionList: any): any{
+
+        let purchases: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
+        let payments: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+        transactionList.forEach((transaction: any)=>{
+
+            if ( transaction['visible'] === true) {
+      
+              if (transaction['cost'] > 0) {
+      
+              payments[transaction['month']-1] += transaction['cost'];
+      
+              } else {
+      
+              purchases[transaction['month']-1] -= transaction['cost'];
+      
+              } 
+            }
+      
+          });
+
+          return {purchases, payments};
+
+    }
+
     static transactionReseterTrue = function(transactions: object[]): object[] {
 
         let ret = transactions.map((transaction: any)=>{

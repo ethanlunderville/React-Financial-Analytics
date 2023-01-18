@@ -36,13 +36,6 @@ function App() {
   let [visible, setVisible] = useState(true);
   let transactions = useRef([]);
 
-  useEffect(() => { 
-  console.log('--------');
-  console.log("Master transaction state was changed")
-  //console.log(transactions.current);
-  console.log('--------');
-  }, [transactions]);
-
   return (<>
       <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
       <Nav setManager={setManager}/>

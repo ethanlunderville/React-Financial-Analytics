@@ -31,20 +31,20 @@ function Filter({setTransactionList}: any) {
             <div className="tooltip-wrap">
           
           
-              <div className="input-group-prepend">
-                <span className="input-group-text">?</span>
-              </div>
+                <div className="input-group-prepend">
+                  <span className="input-group-text">?</span>
+                </div>
 
-              <div className="tooltip-content-filter">
-             Use this to decide what data to include or exclude.
-              <br/><br/>
-             Filter out: Filters out transactions all that include user specified keywords.
-             <br/><br/>
-             Filter in: Only shows transactions containing user specified keywords.
-             <br/><br/>
-             Note: In order to filter multiple words at once seperate the desired words with spaces.
-          </div> 
-        </div>
+                <div className="tooltip-content-filter">
+                    Use this to decide what data to include or exclude.
+                    <br/><br/>
+                    Filter out: Filters out transactions all that include user specified keywords.
+                    <br/><br/>
+                    Filter in: Only shows transactions containing user specified keywords.
+                    <br/><br/>
+                    Note: In order to filter multiple words at once seperate the desired words with spaces.
+                  </div> 
+                </div>
 
                 <button 
                 onClick={()=> setFilterInPressed((e)=>{ if(!e) {setFilterOutPressed(false)} return filterInPressed=!e})}
@@ -119,9 +119,6 @@ function Filter({setTransactionList}: any) {
                     let ret = Datautility.filterhandler (t,
                     filterInPressed, filterOutPressed, nameInput,
                     greaterThanInput, lessThanInput)
-
-                    setFilterInPressed(false);
-                    setFilterOutPressed(false);
 
                     return ret 
 

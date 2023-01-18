@@ -43,10 +43,10 @@ ChartJS.register(
     });
   }
 
-  function boxManager(state: boolean, index: number) {
+  function boxManager(state: boolean, id: number) {
     setTransactionList((transactions: object[])=>{
-      return transactions.map((transaction: object, currentIndex)=>{
-          if (currentIndex === index) {
+      return transactions.map((transaction: any, currentIndex)=>{
+          if (transaction['id'] === id) {
             if (state){
               return {...transaction, visible : false};
             } else {
@@ -61,34 +61,16 @@ ChartJS.register(
 
   useEffect(()=>{
 
-    let purchases: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
-    let payments: number[] = [0,0,0,0,0,0,0,0,0,0,0,0]; 
-
-    transactionList.forEach((transaction: any)=>{
-
-      if ( transaction['visible'] === true && transaction['graphable']) {
-
-        if (transaction['cost'] > 0) {
-
-        payments[transaction['month']-1] += transaction['cost'];
-
-        } else {
-
-        purchases[transaction['month']-1] -= transaction['cost'];
-
-        } 
-      }
-
-    });
+    let {purchases, payments} = Datautility.calculateMonths(transactionList);
 
     setPaymentNums(payments);
     setPurchaseNums(purchases);
 
-    setYearlyExpenses(purchases.reduce((acc, base)=>{
+    setYearlyExpenses(purchases.reduce((acc: number, base : number)=>{
       return acc + base;
     }))
 
-    setYearlyIncome(payments.reduce((acc, base)=>{
+    setYearlyIncome(payments.reduce((acc : number, base : number)=>{
       return acc + base;
     }))
 
