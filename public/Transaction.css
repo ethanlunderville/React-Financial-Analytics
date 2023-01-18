@@ -4,7 +4,7 @@
     grid-template-columns: 3fr 5fr 3fr .7fr;
     grid-auto-rows: auto;
     justify-items: center;
-    max-width: fit-content;
+    min-width: fit-content;
     border: #888888;
     grid-gap: 5px;
     border-bottom-style: solid;

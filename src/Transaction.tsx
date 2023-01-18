@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function Transaction({transactions} : any) {
+function Transaction({transactionList, boxManager, resetTransactionsTrue} : any) {
+
+  let [checked, setChecked] = useState(true);
+
   return (
     <>
       <div id="outerleftbox">
@@ -8,19 +11,19 @@ function Transaction({transactions} : any) {
         <div id="mytransactions" className="btn">My Transactions</div>
         }
         <div id="leftbox">
-            {transactions.current.map((transaction: any, index: number) => { 
+            {transactionList.map((transaction: any, index: number) => { 
               return (
               <div key={index} className="transflex">
                 <p>{transaction['date']}</p>
                 <p>{transaction['transactionName']}</p>
                 <p>{transaction['cost']}</p>
                 <div>
-                  {transaction['visible'] ? <input className="checkbox" checked={true} type="checkbox" id="checkboxNoLabel" /> : <input checked={false} type="checkbox" id="checkboxNoLabel" />}
+                  {<input className="checkbox" onChange={boxManager(true,index)} type="checkbox" id="checkboxNoLabel" />}
                 </div>
               </div>
             )})}
           </div>
-        <button id="resetbutton" className="btn">Reset Transactions</button>
+        <button id="resetbutton" className="btn" onClick={()=>resetTransactionsTrue()}>Reset Transactions</button>
       </div>
     </>
   )

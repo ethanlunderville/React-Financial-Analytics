@@ -23,7 +23,7 @@ function App() {
   
       setDisplayForm(displayNum);
       if (displayNum === 2){
-        sleep(1500).then(()=>{setVisible(true)});
+        sleep(2000).then(()=>{setVisible(true)});
       } else {
         sleep(300).then(()=>{setVisible(true)});
       }

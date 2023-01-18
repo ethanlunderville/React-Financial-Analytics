@@ -29,7 +29,6 @@
     
     display: grid;
     grid-template-columns: 10fr 6fr 2fr;
-    gap: .9%;
     box-shadow: 2px 5px 7px #888888;
 
 }
@@ -93,3 +92,24 @@
 
 }
 
+.ammount-filter-input {
+
+    max-width: 30%;
+
+}
+
+#rangesym {
+
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: large;
+    margin-bottom: 0 !important;
+    margin-top: 5px;
+
+}
+
+#lgtg-group {
+
+    justify-content: center;
+
+}

@@ -26,40 +26,75 @@ ChartJS.register(
   Legend
 );
 
-function Charts({transactions}: any): any {
+  function Charts({transactions}: any) {
 
   const labels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let [purchaseNums, setPurchaseNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
   let [paymentNums, setPaymentNums] = useState([0,0,0,0,0,0,0,0,0,0,0,0]);
+  let [yearlyExpenses, setYearlyExpenses] = useState(0);
+  let [yearlyIncome, setYearlyIncome] = useState(0);
   let [maxY, setMaxY] = useState(0);
+
+  let [transactionList, setTransactionList] = useState(transactions.current);
+
+  function resetTransactionsTrue (){
+    setTransactionList((transactions: any)=>{
+      return Datautility.transactionReseterTrue(transactions);
+    });
+  }
+
+  function boxManager(state: boolean, index: number) {
+    setTransactionList((transactions: object[])=>{
+      return transactions.map((transaction: object, currentIndex)=>{
+          if (currentIndex === index) {
+            if (state){
+              return {...transaction, visible : false};
+            } else {
+              return {...transaction, visible : true};
+            }
+          }
+          return transaction
+      })
+    })
+  }
+
 
   useEffect(()=>{
 
     let purchases: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
     let payments: number[] = [0,0,0,0,0,0,0,0,0,0,0,0]; 
 
-    transactions.current.forEach((transaction: any)=>{
+    transactionList.forEach((transaction: any)=>{
 
-      if ( transaction['visible'] === true) {
+      if ( transaction['visible'] === true && transaction['graphable']) {
 
         if (transaction['cost'] > 0) {
 
-        purchases[transaction['month']-1] += transaction['cost'];
+        payments[transaction['month']-1] += transaction['cost'];
 
         } else {
 
-        payments[transaction['month']-1] -= transaction['cost'];
+        purchases[transaction['month']-1] -= transaction['cost'];
 
         } 
       }
 
     });
 
-    setPaymentNums(purchases);
-    setPurchaseNums(payments);
+    setPaymentNums(payments);
+    setPurchaseNums(purchases);
+
+    setYearlyExpenses(purchases.reduce((acc, base)=>{
+      return acc + base;
+    }))
+
+    setYearlyIncome(payments.reduce((acc, base)=>{
+      return acc + base;
+    }))
+
     setMaxY(Datautility.getYmax(purchases, payments));
 
-  },[]);
+  },[transactionList]);
 
   let options: any = {
     responsive: true,
@@ -98,16 +133,16 @@ function Charts({transactions}: any): any {
     return (
       <>
         <div id="graph-box-outer">
-          <Filter transactions={transactions}/>  
+          <Filter transactionList={transactionList} setTransactionList={setTransactionList}/>  
             <div id="graph-box">
-              <Transaction transactions={transactions}/>
+              <Transaction transactionList={transactionList} boxManager={boxManager} resetTransactionsTrue={resetTransactionsTrue}/>
                 <div className = "chartbox">
                   <Bar options={options} data={data}/>
                   <div id="numberdisplay">
-                    <p>Average monthly expenses: <h2>$5,000</h2></p>
-                    <p>Average monthly income: <h2>$5,000</h2></p>
-                    <p>Total yearly expenses: <h2>$5,000</h2></p>
-                    <p>Total yearly income: <h2>$5,000</h2></p> 
+                    <p>Average monthly expenses: <h2>${Math.floor(yearlyExpenses/12)}</h2></p>
+                    <p>Average monthly income: <h2>${Math.floor(yearlyIncome/12)}</h2></p>
+                    <p>Total yearly expenses: <h2>${Math.floor(yearlyExpenses)}</h2></p>
+                    <p>Total yearly income: <h2>${Math.floor(yearlyIncome)}</h2></p> 
                   </div>    
                 </div>
             </div>

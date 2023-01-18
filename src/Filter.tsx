@@ -2,20 +2,15 @@ import React from 'react'
 import { useState, useRef } from 'react'
 import { Datautility } from './utilities/datautility';
 
-function Filter({transactions}: any) {
+function Filter({setTransactionList}: any) {
 
   let [filterInPressed, setFilterInPressed] = useState(false);
   let [filterOutPressed, setFilterOutPressed] = useState(false);
-  let [lessThanPressed, setLessThanPressed] = useState(false);
-  let [greaterThanPressed, setGreaterThanPressed] = useState(false);
+  let [greaterThanInput, setGreaterThanInput] = useState('');
+  let [lessThanInput, setLessThanInput] = useState('');
 
   let [nameInput, setNameInput] = useState('');
-  let [quantityInput, setQuantityInput] = useState("");
-
-
-  let [filterPressed, setFilterPressed] = useState(false);
   
-
   return (
     <>
       <span className="filter-flex">
@@ -28,8 +23,8 @@ function Filter({transactions}: any) {
               placeholder="Transaction name" 
               aria-label="Filter transactions" 
               aria-describedby="basic-addon2"
-              value={quantityInput}
-              onChange={e=>setQuantityInput(e.target.value)}
+              value={nameInput}
+              onChange={e=>setNameInput(e.target.value)}
             />
             <div className="input-group-append">
 
@@ -54,29 +49,42 @@ function Filter({transactions}: any) {
                 <button 
                 onClick={()=> setFilterInPressed((e)=>{ if(!e) {setFilterOutPressed(false)} return filterInPressed=!e})}
                 className={filterInPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}           
-                type="button">Filter Out</button>
+                type="button">Filter In</button>
 
                 <button
                 onClick={()=> setFilterOutPressed((e)=>{ if(!e) {setFilterInPressed(false)} return filterOutPressed=!e })}
                 className={filterOutPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
-                type="button">Filter In</button>
+                type="button">Filter Out</button>
 
             </div>
           </div>
-          <div className="input-group">
+          <div className="input-group" id="lgtg-group">
 
             
             <div className="input-group-prepend">
               <span className="input-group-text">$</span>
             </div>
 
-            <input id="ammount-filter-input" 
+            <input className="ammount-filter-input form-control" 
             type="text" 
             placeholder="0.00" 
-            className="form-control" 
             aria-label="Amount (to the nearest dollar)"
-            value={nameInput}
-            onChange={e=>setNameInput(e.target.value)}
+            value={greaterThanInput}
+            onChange={e=>setGreaterThanInput(e.target.value)}
+
+            />
+            <p id="rangesym"> &lt; x &lt; </p>
+
+            <div className="input-group-prepend">
+            <span className="input-group-text">$</span>
+            </div>
+
+            <input className="ammount-filter-input form-control" 
+            type="text" 
+            placeholder="0.00" 
+            aria-label="Amount (to the nearest dollar)"
+            value={lessThanInput}
+            onChange={e=>setLessThanInput(e.target.value)}
 
             />
 
@@ -94,31 +102,30 @@ function Filter({transactions}: any) {
              Less than: Filters out transactions where the transaction dollar ammount is less than the user provided dollar ammount.
              <br/><br/>
              Greater than: Filters out transactions where the transaction dollar ammount is greater than the user provided dollar ammount.
-          </div> 
-        </div>
-
-
-
-                <button 
-                onClick={()=> setLessThanPressed((e)=>{if (!e) {setGreaterThanPressed(false)} return lessThanPressed=!e})}
-                className={lessThanPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"} 
-                type="button">less than</button>
-
-                <button                 
-                onClick={()=> setGreaterThanPressed((e)=>{if (!e) {setLessThanPressed(false)} return greaterThanPressed=!e})}
-                className={greaterThanPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
-                type="button">greater than</button>
+              </div> 
+            </div>
 
             </div>
           </div>
             
           <div className="input-group" id="filter-button-div">
-              <button onClick={()=>{
-                   
-                    transactions.current = Datautility.filterhandler (transactions,
-                                        filterInPressed, filterOutPressed, nameInput,
-                                        lessThanPressed, greaterThanPressed, quantityInput)
-                  }}
+              <button onClick={
+                    ()=>{
+                    
+                    setTransactionList((t: any) =>{
+
+                    console.log("setTransaction ran");
+
+                    let ret = Datautility.filterhandler (t,
+                    filterInPressed, filterOutPressed, nameInput,
+                    greaterThanInput, lessThanInput)
+
+                    setFilterInPressed(false);
+                    setFilterOutPressed(false);
+
+                    return ret 
+
+                  })}}
                   id="filterbutton" type="button">
                   Filter transactions
               </button>
