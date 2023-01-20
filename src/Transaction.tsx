@@ -11,11 +11,13 @@ function Transaction({transactionList, boxManager, resetTransactionsTrue} : any)
         <>
           <div id="mytransactions" className="btn">My Transactions</div>
           <div id="chooser-flex">
+            {/*
             <div id="mytransactions" onClick={()=>setShowAllTransactions(true)} className="btn chooser">Show all</div>
             <div id="mytransactions" onClick={()=>{
               setShowAllTransactions(false)
               console.log("selected")
-              }} className="btn chooser">Show selected</div>
+              }} className="btn chooser">Show selected</div>*/
+            }
           </div>
         </>
         }

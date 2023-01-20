@@ -1,3 +1,16 @@
+:root {
+
+  --border-radius-master: 10px;
+  --master-button-color: #1BABAA;
+
+}
+
+body {
+
+  font-family: 'Helvetica', 'Arial', sans-serif !important;
+
+}
+
 .navbar {
 
  background-color: white !important;
@@ -49,11 +62,6 @@
 
 }
 
-body {
-
-  zoom: 40%;
-  
-}
 
 #generate-insights{
 

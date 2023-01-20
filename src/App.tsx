@@ -38,7 +38,24 @@ function App() {
 
   return (<>
       <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
-      <Nav setManager={setManager}/>
+        <div id="blackbar">
+          <div id="hellobar-flex">
+            <div id="left-part">
+              
+              <div id="hello" className='text'>Hello Ethan</div>
+              
+              <p className='text' id="showing-insights">SHOWING INSIGHTS FOR</p>
+
+            </div>
+            <div id="right-part">
+            
+              <button className='month-date'>MONTH</button>
+              <button className='month-date'>12/22</button>
+            
+            </div> 
+          </div>
+        </div>
+      {/*<Nav setManager={setManager}/>*/}
       { (displayForm===0) && <Form setManager={setManager} transactions={transactions}/> }
       { (displayForm===1) && <About/> }
       { (displayForm===2) && <Charts transactions={transactions}/> }

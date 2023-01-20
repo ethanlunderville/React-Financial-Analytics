@@ -103,7 +103,7 @@ ChartJS.register(
       {
         label: "Income",
         data: paymentNums,
-        backgroundColor: "rgba(53, 162, 235, 0.75)"
+        backgroundColor: "rgb(1, 171, 171, .60)"
       },
       {
         label: "Expenses",

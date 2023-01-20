@@ -1,3 +1,7 @@
+  :root {
+    --height: 95vh;
+  }
+
 
   #graph-box {
 
@@ -36,8 +40,10 @@
     margin-right: 12px;
     margin-bottom: 12px;
     
-    max-height: 85vh;
+    max-height: var(--height);
     max-width: 99%;
+
+    border-radius: var(--border-radius-master);
 
     box-shadow: 2px 5px 7px #888888;
 
@@ -48,9 +54,14 @@
 
     max-width: 99%;
     padding: 40px;
-    max-height: 80vh;
+    border-radius: var(--border-radius-master);
+    max-height: var(--height);
     overflow-y: scroll;
 
+  }
+
+  body {
+    zoom: 80%
   }
 
   #outerleftbox {
@@ -64,6 +75,6 @@
     margin-right: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
-    max-height: 85vh;
-
+    max-height: var(--height);
+    border-radius: var(--border-radius-master);
   }

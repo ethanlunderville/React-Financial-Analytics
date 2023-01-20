@@ -32,7 +32,7 @@ function Filter({setTransactionList}: any) {
           
           
                 <div className="input-group-prepend">
-                  <span className="input-group-text">?</span>
+                  <span className="input-group-text symbolic">?</span>
                 </div>
 
                 <div className="tooltip-content-filter">
@@ -48,7 +48,7 @@ function Filter({setTransactionList}: any) {
 
                 <button 
                 onClick={()=> setFilterInPressed((e)=>{ if(!e) {setFilterOutPressed(false)} return filterInPressed=!e})}
-                className={filterInPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}           
+                className={filterInPressed ? "button-pressed btn btn-outline-secondary symbolic" : "btn btn-outline-secondary symbolic"}           
                 type="button">Filter In</button>
 
                 <button
@@ -62,7 +62,7 @@ function Filter({setTransactionList}: any) {
 
             
             <div className="input-group-prepend">
-              <span className="input-group-text">$</span>
+              <span className="input-group-text symbolic">$</span>
             </div>
 
             <input className="ammount-filter-input form-control" 
@@ -76,7 +76,7 @@ function Filter({setTransactionList}: any) {
             <p id="rangesym"> &lt; x &lt; </p>
 
             <div className="input-group-prepend">
-            <span className="input-group-text">$</span>
+            <span className="input-group-text symbolic">$</span>
             </div>
 
             <input className="ammount-filter-input form-control" 
@@ -93,7 +93,7 @@ function Filter({setTransactionList}: any) {
               <div className="tooltip-wrap">
 
               <div className="input-group-prepend">
-              <span className="input-group-text">?</span>
+              <span className="input-group-text symbolic">?</span>
               </div>
 
               <div className="tooltip-content-ltgt">

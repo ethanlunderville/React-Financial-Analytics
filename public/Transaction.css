@@ -30,8 +30,10 @@
 #resetbutton {
     
     color: white;
-    background-color: rgba(92,184,92,255);
+    background-color: var(--master-button-color);
     font-size: large;
+    border-bottom-left-radius: var(--border-radius-master) !important;
+    border-bottom-right-radius: var(--border-radius-master) !important;
 }
 
 #mytransactions {
@@ -39,7 +41,9 @@
     font-size: large;
     border-width: 2px;
     color: white;
-    background-color: #6c757d;
+    background-color: #464646;
+    border-top-left-radius: var(--border-radius-master) !important;
+    border-top-right-radius: var(--border-radius-master) !important;
 
 }
 

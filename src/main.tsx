@@ -9,6 +9,7 @@ import '/public/Filterbar.css';
 import '/public/Graphs.css';
 import '/public/Transaction.css';
 import '/public/Tooltip.css'; 
+import '/public/Hellobar.css'; 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

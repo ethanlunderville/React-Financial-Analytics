@@ -8,7 +8,7 @@
     left: -25%;
     right: 1%;
     margin-left: 80%;
-    background-color: rgba(82,80,85,255);
+    background-color: #464646;
     border-radius: 1px;
     color: white;
     padding: 1.3em;
@@ -32,7 +32,7 @@
     border-radius: 1px;
     color: white;
     padding: 1.3em;
-    box-shadow: 2px 5px 7px #888888;
+    box-shadow: 2px 5px 7px #464646;
   }
   .tooltip-wrap:hover .tooltip-content-ltgt {
     display: block;
