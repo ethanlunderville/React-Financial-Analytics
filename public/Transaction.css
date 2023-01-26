@@ -61,8 +61,22 @@
     justify-content: center;
 
 }
+
+.chosen-button {
+  
+    background-color: white !important;
+    color: #303030 !important;
+    border-color: #303030 !important;
+}
+
 .chooser {
 
     width: 50%;
+
+}
+
+.selected{
+
+    background-color: aqua;
 
 }

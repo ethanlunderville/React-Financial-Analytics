@@ -1,7 +1,7 @@
 #hellobar-flex {
 
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: 6fr 2fr;
     margin-left: 4%;
     margin-right: 4%;
     
@@ -10,10 +10,9 @@
 #left-part {
 
     display: grid;
-    min-width: 100%;
+
     margin-top: 30px;
-    grid-template-columns: 3.8fr 2fr;
-    max-width: 100% !important;
+    grid-template-columns: 3fr 3fr;
 }
 
 @media only screen and (max-width: 1425px) {
@@ -43,7 +42,6 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
     min-width: 100%;
     align-items: baseline;
     gap: 2%;
@@ -61,7 +59,7 @@
 
     
     background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 32%, rgba(0,0,0,1) 84%, rgba(0,0,0,1) 100%);    -webkit-background-clip: text;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 32%, rgba(0,0,0,1) 84%, rgba(0,0,0,1) 100%);   -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
       
@@ -107,5 +105,6 @@
 #showing-insights {
 
     margin-bottom: 0px !important;
+    margin-right: 20px;
 
 }

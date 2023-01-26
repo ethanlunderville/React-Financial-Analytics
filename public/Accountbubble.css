@@ -1,0 +1,52 @@
+.bank-bubble {
+
+    min-width: fit-content;
+    max-width: fit-content;
+    border-radius: 50px;
+    background-color: #303030;
+
+
+}
+
+#util-flex {
+
+    display: flex;
+    min-width: 100%;
+    justify-content: flex-end;
+}
+
+#bank-name {
+
+    color: white;
+
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+}
+
+#add-button {
+   
+    color: white;
+
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    font-size: large;
+    
+}
+
+.banks-flex {
+
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+
+
+}

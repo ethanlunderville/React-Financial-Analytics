@@ -10,9 +10,11 @@ import '/public/Graphs.css';
 import '/public/Transaction.css';
 import '/public/Tooltip.css'; 
 import '/public/Hellobar.css'; 
+import '/public/Accountbubble.css'; 
+import '/public/Toolnav.css';
+import '/public/Spreadsheets.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+
     <App />
-  </React.StrictMode>,
 )

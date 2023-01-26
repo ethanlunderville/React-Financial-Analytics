@@ -5,6 +5,7 @@ interface transaction {
   cost?: number;
   balance?: number;
   visible?:boolean;
+  searched?:boolean;
   id?: number;
 }
 
@@ -23,6 +24,7 @@ class Statementparser {
                 cost: Number(transaction[2]),
                 balance: Number(transaction[3]),
                 visible: true,
+                searched: true,
                 id: id
             };
             transactionObjects.push(transactionObject);

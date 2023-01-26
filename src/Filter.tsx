@@ -51,7 +51,7 @@ function Filter({setTransactionList}: any) {
                 className={filterInPressed ? "button-pressed btn btn-outline-secondary symbolic" : "btn btn-outline-secondary symbolic"}           
                 type="button">Filter In</button>
 
-                <button
+                <button id="filter-out"
                 onClick={()=> setFilterOutPressed((e)=>{ if(!e) {setFilterInPressed(false)} return filterOutPressed=!e })}
                 className={filterOutPressed ? "button-pressed btn btn-outline-secondary" : "btn btn-outline-secondary"}
                 type="button">Filter Out</button>

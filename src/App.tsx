@@ -3,10 +3,14 @@ import Nav from './Nav.js';
 import Form from './Form.js';
 import About from './About.js';
 import Charts from './Charts.js';
+import Hellobar from './Hellobar.js';
+import Accounts from './Accounts.js';
+import Toolnav from './Toolnav.js';
+import Spreadsheets from './Spreadsheets.js';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
-
+import { Datautility } from './utilities/datautility.js';
 
 function App() {
 
@@ -16,7 +20,8 @@ function App() {
     let sleep = (milliseconds: number) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
-  
+    //reset transaction visibility for other tools
+    transactions.current =  Datautility.transactionReseterTrue(transactions.current);
     setVisible(false);
 
     sleep(300).then((e)=>{
@@ -34,32 +39,21 @@ function App() {
 
   let [displayForm, setDisplayForm] = useState(0);
   let [visible, setVisible] = useState(true);
-  let transactions = useRef([]);
+  let transactions: any = useRef([]);
 
   return (<>
+    
+      <Hellobar/>
+      <Accounts/>
       <div id="master-div-fader" className={visible ? "visible" : "hidden"}>
-        <div id="blackbar">
-          <div id="hellobar-flex">
-            <div id="left-part">
-              
-              <div id="hello" className='text'>Hello Ethan</div>
-              
-              <p className='text' id="showing-insights">SHOWING INSIGHTS FOR</p>
-
-            </div>
-            <div id="right-part">
-            
-              <button className='month-date'>MONTH</button>
-              <button className='month-date'>12/22</button>
-            
-            </div> 
-          </div>
-        </div>
-      {/*<Nav setManager={setManager}/>*/}
-      { (displayForm===0) && <Form setManager={setManager} transactions={transactions}/> }
-      { (displayForm===1) && <About/> }
-      { (displayForm===2) && <Charts transactions={transactions}/> }
-    </div>
+        {/*<Nav setManager={setManager}/>*/}
+        { (displayForm===0) && <Form setManager={setManager} transactions={transactions}/> }
+        { (displayForm===1) && <About/> }
+        { (displayForm===2) && <Charts transactions={transactions}/> }
+        { (displayForm===3) && <Spreadsheets transactions={transactions}/> }
+      </div>
+      <Toolnav setManager={setManager} displayForm={displayForm}/>
+    
   </>);
 }
 

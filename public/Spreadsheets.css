@@ -1,0 +1,115 @@
+#spread-outer{
+
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    gap: 1%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+}
+
+.spread-flex {
+
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    
+
+}
+
+.group-outer {
+
+    min-width: 50%;
+    box-shadow: 2px 5px 7px #888888;
+    
+    border-radius: var(--border-radius-master) !important;
+    
+}
+
+#right-button-grid {
+    
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+
+}
+
+#input-group-maker {
+
+    border-top-left-radius: var(--border-radius-master);
+    padding-left: 2px;
+
+}
+
+#create-button {
+
+    font-size: large;
+    border-width: 2px;
+    color: white;
+    background-color: #464646;
+    border-top-right-radius: var(--border-radius-master) !important;
+
+}
+.spread-group{
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+
+}
+
+.spread-transactions-flex {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+#left-spread {
+
+    max-height: var(--height);
+    min-height: var(--height);
+    overflow-y: scroll;
+
+}
+
+#right-spread {
+
+    max-height: var(--height);
+    min-height: var(--height);
+    overflow-y: scroll;
+
+}
+
+#left-button-grid {
+
+    min-width: 100%;
+
+}
+
+#adder-button {
+
+    font-size: large;
+    border-width: 2px;
+    color: white;
+    background-color: #464646;
+    border-top-right-radius: var(--border-radius-master) !important;
+    min-width: 100%;
+
+}
+
+#g-select{
+    color: white;
+    position: absolute;
+    top: 88%;
+    left: 30%;
+    background-color: #464646;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    gap: 4px;
+}

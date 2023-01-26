@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import Filter from './Filter.js';
-import Transaction from './Transaction.js';
+import Transactions from './Transactions.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 import { Bar } from 'react-chartjs-2';
 import { Datautility } from './utilities/datautility';
@@ -117,7 +117,7 @@ ChartJS.register(
         <div id="graph-box-outer">
           <Filter transactionList={transactionList} setTransactionList={setTransactionList}/>  
             <div id="graph-box">
-              <Transaction transactionList={transactionList} boxManager={boxManager} resetTransactionsTrue={resetTransactionsTrue}/>
+              <Transactions transactionList={transactionList} boxManager={boxManager} resetTransactionsTrue={resetTransactionsTrue}/>
                 <div className = "chartbox">
                   <Bar options={options} data={data}/>
                   <div id="numberdisplay">
