@@ -8,7 +8,7 @@
     border: #888888;
     grid-gap: 5px;
     border-bottom-style: solid;
-    margin-bottom: 15px;
+    padding-top: 15px;
 
 }
 
@@ -42,8 +42,7 @@
     border-width: 2px;
     color: white;
     background-color: #464646;
-    border-top-left-radius: var(--border-radius-master) !important;
-    border-top-right-radius: var(--border-radius-master) !important;
+
 
 }
 
@@ -72,6 +71,8 @@
 .chooser {
 
     width: 50%;
+    border-top-left-radius: var(--border-radius-master) !important;
+    border-top-right-radius: var(--border-radius-master) !important;
 
 }
 

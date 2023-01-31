@@ -1,3 +1,13 @@
+#outer-container {
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
 #spread-outer{
 
     margin-left: 2%;
@@ -15,7 +25,10 @@
     display: flex;
     flex-direction: column;
     padding: 3%;
-    
+
+    max-height: 84.7vh;
+    min-height: 84.7vh;
+
 
 }
 
@@ -25,6 +38,9 @@
     box-shadow: 2px 5px 7px #888888;
     
     border-radius: var(--border-radius-master) !important;
+
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -68,16 +84,13 @@
 
 #left-spread {
 
-    max-height: var(--height);
-    min-height: var(--height);
     overflow-y: scroll;
 
 }
 
 #right-spread {
 
-    max-height: var(--height);
-    min-height: var(--height);
+
     overflow-y: scroll;
 
 }
@@ -112,4 +125,98 @@
     align-items: center;
     border-radius: 20px;
     gap: 4px;
+}
+
+#spreadsheet-searchbar {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 100%;
+
+}
+
+.spreadsheet-searchbar-flex {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#spread-filter-left {
+
+    margin-bottom: 25px;
+    margin-top: 25px;
+
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    
+    border-radius: var(--border-radius-master);
+    display: grid;
+    box-shadow: 2px 5px 7px #888888;
+    min-width: 93%;
+}
+
+.bottom-chooser {
+
+    width: 50%;
+    border-bottom-left-radius: var(--border-radius-master) !important;
+    border-bottom-right-radius: var(--border-radius-master) !important;
+
+}
+
+#group-maker {
+
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr ;
+    gap: 2%;
+    align-items: baseline;
+
+}
+
+#cash-floater{
+
+  display: flex;
+
+}
+
+#group-display {
+
+    display: grid;
+    grid-template-columns: 4fr 5fr 3fr;
+    padding-left: 5%;
+    padding-right: 5%;
+    align-items: center;
+    justify-items: center;
+
+}
+
+#group-delete{
+
+   display: flex;
+   justify-content: flex-end;
+
+}
+
+#selector-buttons {
+
+    display: flex;
+    flex-direction: row;
+    max-width: 50%;
+}
+
+.fix-this {
+
+    flex-grow: 1;
+
+}
+
+#group-shower {
+
+    max-height: var(--height);
+    box-shadow: 2px 5px 7px #888888;
+    padding: 5%;
+
+
 }
